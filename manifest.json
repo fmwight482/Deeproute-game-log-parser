@@ -4,13 +4,13 @@
   "version": "1.0",
   "description": "Parses game logs and data tables from DeepRoute.com",
   "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["https://deeproute.com/*"],
+  "host_permissions": ["https://deeproute.com/*js=weekbyweek*"],
   "action": {
     "default_title": "Parse DeepRoute Data"
   },
   "content_scripts": [
     {
-      "matches": ["https://deeproute.com/*"],
+      "matches": ["https://deeproute.com/*js=weekbyweek*"],
       "js": ["content.js"]
     }
   ]
