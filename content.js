@@ -274,7 +274,7 @@ async function parseSingleWeek(btnController) {
         }
 
         // Prepare CSV structure
-        const newLogHeaders = ['"Quarter"', '"Time"', '"Down"', '"Distance"', '"Field Position"', '"Points Home"', '"Points Away"', '"Play Type"', '"Possession"', '"Off Team"', '"Def Team"', '"Offensive Package"', '"Off Subpackage"', '"Formation"', '"Off Play"', '"Def Package"', '"Coverage"', '"Coverage Depth"', '"Roamer Job"', '"Def Blitzer"', '"Total Yards"', '"Play Result"', '"Passer ID"', '"Runner"', '"Runner ID"', '"Hole"', '"First Read"', '"First Target"', '"First Target ID"', '"First In Coverage"', '"First In Coverage ID"', '"Second Read"', '"Second Target"', '"Second Target ID"', '"Second In Coverage"', '"Second In Coverage ID"', '"Third Read"', '"Third Target"', '"Third Target ID"', '"Third In Coverage"', '"Third In Coverage ID"', '"Fourth Read"', '"Fourth Target"', '"Fourth Target ID"', '"Fourth In Coverage"', '"Fourth In Coverage ID"', '"Final Target"', '"Final Target ID"', '"Final In Coverage"', '"Final In Coverage ID"', '"Target Distance"', '"Yards After Catch"', '"Tackler"', '"Tackler ID"', '"TFL Position"', '"TFL Position ID"', '"BD Position"', '"BD Position ID"', '"PD Position"', '"PD Position ID"', '"INT Position"', '"INT Position ID"', '"Sck Position"', '"Sck Position ID"', '"Sk Alwd Position"', '"Sk Alwd Position ID"', '"Pressure Type"', '"FF Position"', '"FF Position ID"', '"Cov Txt"', '"Cov Txt Pos"', '"Cov Txt ID"', '"Punt Dist"', '"Return Yds"', '"Returner ID"'];
+        const newLogHeaders = ['"Quarter"', '"Time"', '"Down"', '"Distance"', '"Field Position"', '"Points Home"', '"Points Away"', '"Play Type"', '"Possession"', '"Off Team"', '"Def Team"', '"Offensive Package"', '"Off Subpackage"', '"Formation"', '"Off Play"', '"Def Package"', '"Coverage"', '"Coverage Depth"', '"Roamer Job"', '"Def Blitzer"', '"Total Yards"', '"Play Result"', '"Passer ID"', '"Runner"', '"Runner ID"', '"Hole"', '"First Read"', '"First Target"', '"First Target ID"', '"First In Coverage"', '"First In Coverage ID"', '"Second Read"', '"Second Target"', '"Second Target ID"', '"Second In Coverage"', '"Second In Coverage ID"', '"Third Read"', '"Third Target"', '"Third Target ID"', '"Third In Coverage"', '"Third In Coverage ID"', '"Fourth Read"', '"Fourth Target"', '"Fourth Target ID"', '"Fourth In Coverage"', '"Fourth In Coverage ID"', '"Final Target"', '"Final Target ID"', '"Final In Coverage"', '"Final In Coverage ID"', '"Target Distance"', '"Yards After Catch"', '"Tackler"', '"Tackler ID"', '"TFL Position"', '"TFL Position ID"', '"BD Position"', '"BD Position ID"', '"PD Position"', '"PD Position ID"', '"INT Position"', '"INT Position ID"', '"Sck Position"', '"Sck Position ID"', '"Sk Alwd Position"', '"Sk Alwd Position ID"', '"Pressure Type"', '"FF Position"', '"FF Position ID"', '"Cov Txt"', '"Cov Txt Pos"', '"Cov Txt ID"', '"Punt Dist"', '"Return Yds"', '"Returner ID"', '"off_pos1"', '"off_id1"', '"off_pos2"', '"off_id2"', '"off_pos3"', '"off_id3"', '"off_pos4"', '"off_id4"', '"off_pos5"', '"off_id5"', '"off_pos6"', '"off_id6"', '"off_pos7"', '"off_id7"', '"off_pos8"', '"off_id8"', '"off_pos9"', '"off_id9"', '"off_pos10"', '"off_id10"', '"off_pos11"', '"off_id11"', '"def_pos1"', '"def_id1"', '"def_pos2"', '"def_id2"', '"def_pos3"', '"def_id3"', '"def_pos4"', '"def_id4"', '"def_pos5"', '"def_id5"', '"def_pos6"', '"def_id6"', '"def_pos7"', '"def_id7"', '"def_pos8"', '"def_id8"', '"def_pos9"', '"def_id9"', '"def_pos10"', '"def_id10"', '"def_pos11"', '"def_id11"'];
         const csvHeader = ['"League"', '"Year"', '"Type"', '"Week"', ...newLogHeaders].join(',');
         const csvRows = [];
 
@@ -563,7 +563,7 @@ async function parseFullSeason(btnController) {
     }
 
     // Build CSV header
-    const newLogHeaders = ['"Quarter"', '"Time"', '"Down"', '"Distance"', '"Field Position"', '"Points Home"', '"Points Away"', '"Play Type"', '"Possession"', '"Off Team"', '"Def Team"', '"Offensive Package"', '"Off Subpackage"', '"Formation"', '"Off Play"', '"Def Package"', '"Coverage"', '"Coverage Depth"', '"Roamer Job"', '"Def Blitzer"', '"Total Yards"', '"Play Result"', '"Passer ID"', '"Runner"', '"Runner ID"', '"Hole"', '"First Read"', '"First Target"', '"First Target ID"', '"First In Coverage"', '"First In Coverage ID"', '"Second Read"', '"Second Target"', '"Second Target ID"', '"Second In Coverage"', '"Second In Coverage ID"', '"Third Read"', '"Third Target"', '"Third Target ID"', '"Third In Coverage"', '"Third In Coverage ID"', '"Fourth Read"', '"Fourth Target"', '"Fourth Target ID"', '"Fourth In Coverage"', '"Fourth In Coverage ID"', '"Final Target"', '"Final Target ID"', '"Final In Coverage"', '"Final In Coverage ID"', '"Target Distance"', '"Yards After Catch"', '"Tackler"', '"Tackler ID"', '"TFL Position"', '"TFL Position ID"', '"BD Position"', '"BD Position ID"', '"PD Position"', '"PD Position ID"', '"INT Position"', '"INT Position ID"', '"Sck Position"', '"Sck Position ID"', '"Sk Alwd Position"', '"Sk Alwd Position ID"', '"Pressure Type"', '"FF Position"', '"FF Position ID"', '"Cov Txt"', '"Cov Txt Pos"', '"Cov Txt ID"', '"Punt Dist"', '"Return Yds"', '"Returner ID"'];
+    const newLogHeaders = ['"Quarter"', '"Time"', '"Down"', '"Distance"', '"Field Position"', '"Points Home"', '"Points Away"', '"Play Type"', '"Possession"', '"Off Team"', '"Def Team"', '"Offensive Package"', '"Off Subpackage"', '"Formation"', '"Off Play"', '"Def Package"', '"Coverage"', '"Coverage Depth"', '"Roamer Job"', '"Def Blitzer"', '"Total Yards"', '"Play Result"', '"Passer ID"', '"Runner"', '"Runner ID"', '"Hole"', '"First Read"', '"First Target"', '"First Target ID"', '"First In Coverage"', '"First In Coverage ID"', '"Second Read"', '"Second Target"', '"Second Target ID"', '"Second In Coverage"', '"Second In Coverage ID"', '"Third Read"', '"Third Target"', '"Third Target ID"', '"Third In Coverage"', '"Third In Coverage ID"', '"Fourth Read"', '"Fourth Target"', '"Fourth Target ID"', '"Fourth In Coverage"', '"Fourth In Coverage ID"', '"Final Target"', '"Final Target ID"', '"Final In Coverage"', '"Final In Coverage ID"', '"Target Distance"', '"Yards After Catch"', '"Tackler"', '"Tackler ID"', '"TFL Position"', '"TFL Position ID"', '"BD Position"', '"BD Position ID"', '"PD Position"', '"PD Position ID"', '"INT Position"', '"INT Position ID"', '"Sck Position"', '"Sck Position ID"', '"Sk Alwd Position"', '"Sk Alwd Position ID"', '"Pressure Type"', '"FF Position"', '"FF Position ID"', '"Cov Txt"', '"Cov Txt Pos"', '"Cov Txt ID"', '"Punt Dist"', '"Return Yds"', '"Returner ID"', '"off_pos1"', '"off_id1"', '"off_pos2"', '"off_id2"', '"off_pos3"', '"off_id3"', '"off_pos4"', '"off_id4"', '"off_pos5"', '"off_id5"', '"off_pos6"', '"off_id6"', '"off_pos7"', '"off_id7"', '"off_pos8"', '"off_id8"', '"off_pos9"', '"off_id9"', '"off_pos10"', '"off_id10"', '"off_pos11"', '"off_id11"', '"def_pos1"', '"def_id1"', '"def_pos2"', '"def_id2"', '"def_pos3"', '"def_id3"', '"def_pos4"', '"def_id4"', '"def_pos5"', '"def_id5"', '"def_pos6"', '"def_id6"', '"def_pos7"', '"def_id7"', '"def_pos8"', '"def_id8"', '"def_pos9"', '"def_id9"', '"def_pos10"', '"def_id10"', '"def_pos11"', '"def_id11"'];
     const csvHeader = ['"League"', '"Year"', '"Type"', '"Week"', ...newLogHeaders].join(',');
 
     // Rows are already formatted as CSV strings, just join them
@@ -618,6 +618,50 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
     let awayScore = 0;
     let lastQuarter = "Q1";
     let lastTime = "15:00";
+    let nextOffPos1 = "";
+    let nextOffId1 = "";
+    let nextOffPos2 = "";
+    let nextOffId2 = "";
+    let nextOffPos3 = "";
+    let nextOffId3 = "";
+    let nextOffPos4 = "";
+    let nextOffId4 = "";
+    let nextOffPos5 = "";
+    let nextOffId5 = "";
+    let nextOffPos6 = "";
+    let nextOffId6 = "";
+    let nextOffPos7 = "";
+    let nextOffId7 = "";
+    let nextOffPos8 = "";
+    let nextOffId8 = "";
+    let nextOffPos9 = "";
+    let nextOffId9 = "";
+    let nextOffPos10 = "";
+    let nextOffId10 = "";
+    let nextOffPos11 = "";
+    let nextOffId11 = "";
+    let nextDefPos1 = "";
+    let nextDefId1 = "";
+    let nextDefPos2 = "";
+    let nextDefId2 = "";
+    let nextDefPos3 = "";
+    let nextDefId3 = "";
+    let nextDefPos4 = "";
+    let nextDefId4 = "";
+    let nextDefPos5 = "";
+    let nextDefId5 = "";
+    let nextDefPos6 = "";
+    let nextDefId6 = "";
+    let nextDefPos7 = "";
+    let nextDefId7 = "";
+    let nextDefPos8 = "";
+    let nextDefId8 = "";
+    let nextDefPos9 = "";
+    let nextDefId9 = "";
+    let nextDefPos10 = "";
+    let nextDefId10 = "";
+    let nextDefPos11 = "";
+    let nextDefId11 = "";
 
     for (let i = 0; i < table.rows.length; i++) {
         const row = table.rows[i];
@@ -914,7 +958,7 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
         }
 
         // Check for separator line (ORIGINAL LOGIC)
-        const isSeparator = row.querySelector('td[bgcolor="#000000"], td[bgcolor="#eeee99"], td[bgcolor="#EEEE99"]') !== null || text.includes("Offensive Players:");
+        const isSeparator = row.querySelector('td[bgcolor="#000000"], td[bgcolor="#eeee99"], td[bgcolor="#EEEE99"]') !== null || text.includes("Offensive Players:") || text.includes("Offensive Players :") || text.includes("Defensive Players:") || text.includes("Defensive Players :");
         
         if (isSeparator) {
             if (currentPlay) {
@@ -926,6 +970,79 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
             }
             currentPlay = null;
             currentPlayColor = null;
+
+            // Extract off_pos1 from Offensive Players row
+            if (text.includes("Offensive Players")) {
+                let allPlayers = [];
+                // Parse players from the first row (skill positions)
+                const playersContentMatch = row.innerHTML.match(/Offensive Players\s*:\s*<\/b>\s*<br>(.*)/i);
+                if (playersContentMatch) {
+                    const playersString = playersContentMatch[1];
+                    const skillPlayers = Array.from(playersString.matchAll(/\s*([A-Za-z0-9]+)\s*<a[^>]*?lookatplayer=(\d+)/gi));
+                    allPlayers.push(...skillPlayers);
+                }
+
+                // Check for the next row (offensive line)
+                const nextRow = table.rows[i + 1];
+                if (nextRow) {
+                    const nextRowText = nextRow.textContent.trim();
+                    const hasTimestamp = nextRowText.match(PATTERNS.quarterTime);
+                    const isContinuation = nextRowText.includes("Offensive Call :");
+                    if (!hasTimestamp && !isContinuation) {
+                        const linemen = Array.from(nextRow.innerHTML.matchAll(/\s*([A-Za-z0-9]+)\s*<a[^>]*?lookatplayer=(\d+)/gi));
+                        allPlayers.push(...linemen);
+                    }
+                }
+
+                // Assign to variables from the combined allPlayers array
+                if (allPlayers.length > 0) { nextOffPos1 = allPlayers[0][1]; nextOffId1 = allPlayers[0][2]; }
+                if (allPlayers.length > 1) { nextOffPos2 = allPlayers[1][1]; nextOffId2 = allPlayers[1][2]; }
+                if (allPlayers.length > 2) { nextOffPos3 = allPlayers[2][1]; nextOffId3 = allPlayers[2][2]; }
+                if (allPlayers.length > 3) { nextOffPos4 = allPlayers[3][1]; nextOffId4 = allPlayers[3][2]; }
+                if (allPlayers.length > 4) { nextOffPos5 = allPlayers[4][1]; nextOffId5 = allPlayers[4][2]; }
+                if (allPlayers.length > 5) { nextOffPos6 = allPlayers[5][1]; nextOffId6 = allPlayers[5][2]; }
+                if (allPlayers.length > 6) { nextOffPos7 = allPlayers[6][1]; nextOffId7 = allPlayers[6][2]; }
+                if (allPlayers.length > 7) { nextOffPos8 = allPlayers[7][1]; nextOffId8 = allPlayers[7][2]; }
+                if (allPlayers.length > 8) { nextOffPos9 = allPlayers[8][1]; nextOffId9 = allPlayers[8][2]; }
+                if (allPlayers.length > 9) { nextOffPos10 = allPlayers[9][1]; nextOffId10 = allPlayers[9][2]; }
+                if (allPlayers.length > 10) { nextOffPos11 = allPlayers[10][1]; nextOffId11 = allPlayers[10][2]; }
+            }
+
+            // Extract def_pos1 from Defensive Players row
+            if (text.includes("Defensive Players")) {
+                let allDefPlayers = [];
+                // Parse players from the first row
+                const defPlayersContentMatch = row.innerHTML.match(/Defensive Players\s*:\s*<\/b>\s*<br>(.*)/i);
+                if (defPlayersContentMatch) {
+                    const defPlayersString = defPlayersContentMatch[1];
+                    const defPlayers = Array.from(defPlayersString.matchAll(/\s*([A-Za-z0-9]+)\s*<a[^>]*?lookatplayer=(\d+)/gi));
+                    allDefPlayers.push(...defPlayers);
+                }
+
+                // Check for the next row (continuation)
+                const nextRow = table.rows[i + 1];
+                if (nextRow) {
+                    const nextRowText = nextRow.textContent.trim();
+                    const hasTimestamp = nextRowText.match(PATTERNS.quarterTime);
+                    const isContinuation = nextRowText.includes("Offensive Call :");
+                    if (!hasTimestamp && !isContinuation && !nextRowText.includes("Defensive Players") && !nextRowText.includes("Offensive Players")) {
+                        const defRow2 = Array.from(nextRow.innerHTML.matchAll(/\s*([A-Za-z0-9]+)\s*<a[^>]*?lookatplayer=(\d+)/gi));
+                        allDefPlayers.push(...defRow2);
+                    }
+                }
+
+                if (allDefPlayers.length > 0) { nextDefPos1 = allDefPlayers[0][1]; nextDefId1 = allDefPlayers[0][2]; }
+                if (allDefPlayers.length > 1) { nextDefPos2 = allDefPlayers[1][1]; nextDefId2 = allDefPlayers[1][2]; }
+                if (allDefPlayers.length > 2) { nextDefPos3 = allDefPlayers[2][1]; nextDefId3 = allDefPlayers[2][2]; }
+                if (allDefPlayers.length > 3) { nextDefPos4 = allDefPlayers[3][1]; nextDefId4 = allDefPlayers[3][2]; }
+                if (allDefPlayers.length > 4) { nextDefPos5 = allDefPlayers[4][1]; nextDefId5 = allDefPlayers[4][2]; }
+                if (allDefPlayers.length > 5) { nextDefPos6 = allDefPlayers[5][1]; nextDefId6 = allDefPlayers[5][2]; }
+                if (allDefPlayers.length > 6) { nextDefPos7 = allDefPlayers[6][1]; nextDefId7 = allDefPlayers[6][2]; }
+                if (allDefPlayers.length > 7) { nextDefPos8 = allDefPlayers[7][1]; nextDefId8 = allDefPlayers[7][2]; }
+                if (allDefPlayers.length > 8) { nextDefPos9 = allDefPlayers[8][1]; nextDefId9 = allDefPlayers[8][2]; }
+                if (allDefPlayers.length > 9) { nextDefPos10 = allDefPlayers[9][1]; nextDefId10 = allDefPlayers[9][2]; }
+                if (allDefPlayers.length > 10) { nextDefPos11 = allDefPlayers[10][1]; nextDefId11 = allDefPlayers[10][2]; }
+            }
 
             // Check for Score Update in this separator row (ORIGINAL LOGIC)
             const scoreMatch = text.match(PATTERNS.scoreUpdate);
@@ -1918,8 +2035,53 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                 `"${ffPosition}"`, `"${ffPositionId}"`,
                 `"${covTxt}"`, `"${covTxtPos}"`, `"${covTxtId}"`,
                 `"${puntDist}"`,
-                `"${returnYds}"`, `"${returnerId}"`
+                `"${returnYds}"`, `"${returnerId}"`, `"${nextOffPos1}"`, `"${nextOffId1}"`, `"${nextOffPos2}"`, `"${nextOffId2}"`, `"${nextOffPos3}"`, `"${nextOffId3}"`, `"${nextOffPos4}"`, `"${nextOffId4}"`, `"${nextOffPos5}"`, `"${nextOffId5}"`, `"${nextOffPos6}"`, `"${nextOffId6}"`, `"${nextOffPos7}"`, `"${nextOffId7}"`, `"${nextOffPos8}"`, `"${nextOffId8}"`, `"${nextOffPos9}"`, `"${nextOffId9}"`, `"${nextOffPos10}"`, `"${nextOffId10}"`, `"${nextOffPos11}"`, `"${nextOffId11}"`, `"${nextDefPos1}"`, `"${nextDefId1}"`, `"${nextDefPos2}"`, `"${nextDefId2}"`, `"${nextDefPos3}"`, `"${nextDefId3}"`, `"${nextDefPos4}"`, `"${nextDefId4}"`, `"${nextDefPos5}"`, `"${nextDefId5}"`, `"${nextDefPos6}"`, `"${nextDefId6}"`, `"${nextDefPos7}"`, `"${nextDefId7}"`, `"${nextDefPos8}"`, `"${nextDefId8}"`, `"${nextDefPos9}"`, `"${nextDefId9}"`, `"${nextDefPos10}"`, `"${nextDefId10}"`, `"${nextDefPos11}"`, `"${nextDefId11}"`
             ];
+
+            nextOffPos1 = ""; // Reset for next play
+            nextOffId1 = ""; // Reset for next play
+            nextOffPos2 = ""; // Reset for next play
+            nextOffId2 = ""; // Reset for next play
+            nextOffPos3 = ""; // Reset for next play
+            nextOffId3 = ""; // Reset for next play
+            nextOffPos4 = ""; // Reset for next play
+            nextOffId4 = ""; // Reset for next play
+            nextOffPos5 = ""; // Reset for next play
+            nextOffId5 = ""; // Reset for next play
+            nextOffPos6 = ""; // Reset for next play
+            nextOffId6 = ""; // Reset for next play
+            nextOffPos7 = ""; // Reset for next play
+            nextOffId7 = ""; // Reset for next play
+            nextOffPos8 = "";
+            nextOffId8 = "";
+            nextOffPos9 = "";
+            nextOffId9 = "";
+            nextOffPos10 = "";
+            nextOffId10 = "";
+            nextOffPos11 = "";
+            nextOffId11 = "";
+            nextDefPos1 = "";
+            nextDefId1 = "";
+            nextDefPos2 = "";
+            nextDefId2 = "";
+            nextDefPos3 = "";
+            nextDefId3 = "";
+            nextDefPos4 = "";
+            nextDefId4 = "";
+            nextDefPos5 = "";
+            nextDefId5 = "";
+            nextDefPos6 = "";
+            nextDefId6 = "";
+            nextDefPos7 = "";
+            nextDefId7 = "";
+            nextDefPos8 = "";
+            nextDefId8 = "";
+            nextDefPos9 = "";
+            nextDefId9 = "";
+            nextDefPos10 = "";
+            nextDefId10 = "";
+            nextDefPos11 = "";
+            nextDefId11 = "";
 
             // Store current play color
             const firstCellNew = row.cells[0];
@@ -1956,7 +2118,6 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                 }
             }
 
-            currentPlay = [`"${quarter}"`, `"${time}"`, `"${down}"`, `"${distance}"`, `"${fieldPos}"`, `"${homeScore}"`, `"${awayScore}"`, `"${playType}"`, `"${possession}"`, `"${offTeam}"`, `"${defTeam}"`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `"${playResult}"`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`, `""`];
             
             const firstCell = row.cells[0];
             currentPlayColor = firstCell ? firstCell.getAttribute('bgcolor') : null;
