@@ -2295,7 +2295,10 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                 }
                 const depthParts = text.split(';');
                 if (depthParts.length > 1) {
-                    const potentialDepth = depthParts[depthParts.length - 1].trim();
+                    let potentialDepth = depthParts[depthParts.length - 1].trim();
+                    // Remove Blitzing info which often follows the coverage depth in the text content
+                    potentialDepth = potentialDepth.split(/Blitzing\s*:/i)[0].trim();
+
                     if (potentialDepth && !potentialDepth.includes("Roamer Job") && !potentialDepth.includes("Coverage :")) {
                         currentPlay[17] = `"${potentialDepth}"`;
                     }
