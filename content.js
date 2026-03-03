@@ -1482,7 +1482,7 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
             } else if (lowerText.includes("handoff")) {
                 playType = "run";
             } else if (lowerText.includes("scrambles")) {
-                playType = "run";
+                playType = "pass";
             } else if (lowerText.includes("field goal")) {
                 playType = "field goal";
             } else if (lowerText.includes("punt")) {
@@ -1491,7 +1491,7 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                 playType = "penalty";
             }
 
-            if (playType === "pass") {
+            if (playType === "pass" && playResult !== "scramble") {
                 runner = "";
                 runnerId = "";
             }
@@ -1835,8 +1835,11 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                     if (playType !== "") {
                         currentPlay[7] = `"${playType}"`;
                         if (playType === "pass") {
-                            currentPlay[23] = '""'; // Runner
-                            currentPlay[24] = '""'; // Runner ID
+                            const isScramble = currentPlay[21] === '"scramble"' || playResult === 'scramble';
+                            if (!isScramble) {
+                                currentPlay[23] = '""'; // Runner
+                                currentPlay[24] = '""'; // Runner ID
+                            }
                         }
                     }
                     if (down !== "") currentPlay[2] = `"${down}"`;
