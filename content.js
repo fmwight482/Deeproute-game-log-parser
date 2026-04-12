@@ -668,15 +668,45 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
         const text = row.textContent.trim();
         const lowerText = text.toLowerCase();
 
+        // Extract Play Type
+        let playType = "";
+        if (lowerText.includes("two minute warning")) {
+            playType = "Two Minute Warning";
+        } else if (lowerText.includes("time out")) {
+            playType = "Timeout";
+        } else if (lowerText.includes("onside kick")) {
+            playType = "onside kick";
+        } else if (lowerText.includes("kickoff")) {
+            playType = "kickoff";
+        } else if (lowerText.includes("pass")) {
+            playType = "pass";
+        } else if (lowerText.includes("threw the ball away")) {
+            playType = "pass";
+        } else if (lowerText.includes("sacked")) {
+            playType = "pass";
+        } else if (lowerText.includes("handoff")) {
+            playType = "run";
+        } else if (lowerText.includes("keeps it")) {
+            playType = "run";
+        } else if (lowerText.includes("scrambles")) {
+            playType = "pass";
+        } else if (lowerText.includes("field goal")) {
+            playType = "field goal";
+        } else if (lowerText.includes("punt")) {
+            playType = "punt";
+        } else if (lowerText.includes("penalty")) {
+            playType = "penalty";
+        }
+
         // Extract Play Result (ORIGINAL LOGIC)
         let playResult = "";
         if (lowerText.includes("touchdown")) {
             if (lowerText.includes("returned")) {
                 playResult = "TD";
             } else if (lowerText.includes("pass") || lowerText.includes("complete") || lowerText.includes("threw")) {
-                playResult = "complete, TD";
-            } else if (lowerText.includes("handoff") || lowerText.includes("scramble") || lowerText.includes("rush")) {
-                playResult = "rush; TD";
+                playResult = "complete; TD";
+            } else if (lowerText.includes("handoff") || lowerText.includes("scramble") || lowerText.includes("rush") || lowerText.includes("keeps it")) {
+                playResult = lowerText.includes("scramble") ? "scramble; TD" : "rush; TD";
             } else {
                 playResult = "TD";
             }
@@ -687,7 +717,7 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
         } else if (lowerText.includes("intercepted") || lowerText.includes("interception")) {
             playResult = "interception";
         } else if (lowerText.includes("fumble")) {
-            playResult = "fumble";
+            playResult = lowerText.includes("handoff") ? "fumbled handoff" : "fumble";
         } else if (lowerText.includes("threw the ball away")) {
             playResult = "throw away";
         } else if (lowerText.includes("incomplete")) {
@@ -702,7 +732,7 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
             playResult = "sack";
         } else if (lowerText.includes("scrambles")) {
             playResult = "scramble";
-        } else if (lowerText.includes("handoff")) {
+        } else if (lowerText.includes("handoff") || lowerText.includes("keeps it")) {
             playResult = "rush";
         } else if (lowerText.includes("fair catch") || lowerText.includes("no return")) {
             playResult = "fair catch";
@@ -1463,34 +1493,6 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                 }
             }
 
-            // Extract Play Type (MOVED UP - needed before firstTarget extraction)
-            let playType = "";
-            if (lowerText.includes("two minute warning")) {
-                playType = "Two Minute Warning";
-            } else if (lowerText.includes("time out")) {
-                playType = "Timeout";
-            } else if (lowerText.includes("onside kick")) {
-                playType = "onside kick";
-            } else if (lowerText.includes("kickoff")) {
-                playType = "kickoff";
-            } else if (lowerText.includes("pass")) {
-                playType = "pass";
-            } else if (lowerText.includes("threw the ball away")) {
-                playType = "pass";
-            } else if (lowerText.includes("sacked")) {
-                playType = "pass";
-            } else if (lowerText.includes("handoff")) {
-                playType = "run";
-            } else if (lowerText.includes("scrambles")) {
-                playType = "pass";
-            } else if (lowerText.includes("field goal")) {
-                playType = "field goal";
-            } else if (lowerText.includes("punt")) {
-                playType = "punt";
-            } else if (lowerText.includes("penalty")) {
-                playType = "penalty";
-            }
-
             if (playType === "pass" && playResult !== "scramble") {
                 runner = "";
                 runnerId = "";
@@ -1851,8 +1853,14 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                         const currentResult = currentPlay[21].replace(/"/g, '');
                         if (playResult === "complete" && currentResult === "dump off") {
                             // Keep "dump off", don't overwrite
-                        } else if (playResult === "TD" && currentPlay[7] === '"run"') {
-                            currentPlay[21] = '"rush, TD"';
+                        } else if (playResult === "TD") {
+                            if (currentResult === "scramble") {
+                                currentPlay[21] = '"scramble; TD"';
+                            } else if (currentPlay[7] === '"run"') {
+                                currentPlay[21] = '"rush; TD"';
+                            } else {
+                                currentPlay[21] = `"${playResult}"`;
+                            }
                         } else {
                             currentPlay[21] = `"${playResult}"`;
                         }
@@ -2101,7 +2109,7 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
             const down = "";
             const distance = "";
             const fieldPos = "35"; // Default kickoff line
-            const playType = "kickoff";
+            playType = "kickoff";
             
             // Extract Possession
             let possession = "";
@@ -2127,13 +2135,23 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
 
         } else if (currentPlay) {
             // Process continuation lines for the current play (ORIGINAL LOGIC)
+            if (playType !== "" && (currentPlay[7] === '""' || currentPlay[7] === '')) {
+                currentPlay[7] = `"${playType}"`;
+            }
+
             if (playResult !== "") {
                 // Don't let generic "complete" overwrite more specific results like "dump off"
                 const currentResult = currentPlay[21].replace(/"/g, ''); // Remove quotes to check value
                 if (playResult === "complete" && currentResult === "dump off") {
                     // Keep "dump off", don't overwrite with "complete"
-                } else if (playResult === "TD" && currentPlay[7] === '"run"') {
-                    currentPlay[21] = '"rush; TD"';
+                } else if (playResult === "TD") {
+                    if (currentResult === "scramble") {
+                        currentPlay[21] = '"scramble; TD"';
+                    } else if (currentPlay[7] === '"run"') {
+                        currentPlay[21] = '"rush; TD"';
+                    } else {
+                        currentPlay[21] = `"${playResult}"`;
+                    }
                 } else {
                     currentPlay[21] = `"${playResult}"`;
                 }
@@ -2294,7 +2312,13 @@ function extractDataFromLogPage(logDoc, homeTeam, awayTeam) {
                 }
                 const covMatch = text.match(PATTERNS.coverage);
                 if (covMatch) {
-                    currentPlay[16] = `"${covMatch[1].trim()}"`;
+                    let coverage = covMatch[1].trim();
+                    if (coverage === "Cover 3" && text.match(/Coverage\s*:\s*Cover 3\s*;\s*Tampa/i)) {
+                        coverage = "Tampa";
+                    } else if (coverage === "Cover 2" && !text.match(/Coverage\s*:\s*Cover 2\s*;\s*Zone Under/i)) {
+                        coverage = "2 Man";
+                    }
+                    currentPlay[16] = `"${coverage}"`;
                 }
                 const depthParts = text.split(';');
                 if (depthParts.length > 1) {
